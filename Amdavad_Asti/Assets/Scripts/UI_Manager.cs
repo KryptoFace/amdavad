@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour 
 {
 	public GameObject StartingPanel;
 	public GameObject ModeSeletPanel;
 	public GameObject BetSelectPanel;
+
+	public Text BetAmount_text;
+
+	int BetAmount = 100;
 
 	public void Play()
 	{
@@ -29,12 +34,29 @@ public class UI_Manager : MonoBehaviour
 			BetSelectPanel.SetActive (true);
 		}
 	}
-
-
+		
 	public void DisableAllPanel()
 	{
 		StartingPanel.SetActive (false);
 		ModeSeletPanel.SetActive (false);
 		BetSelectPanel.SetActive (false);
+	}
+	public void Plus()
+	{
+			BetAmount += 50;
+	}
+	public void Minus()
+	{
+		if (BetAmount > 100) {
+			BetAmount -= 50;
+		}
+		else
+		{
+			BetAmount = 100;	
+		}
+	}
+	void Update()
+	{
+		BetAmount_text.text = BetAmount.ToString ();
 	}
 }
