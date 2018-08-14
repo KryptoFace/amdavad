@@ -8,6 +8,7 @@ public class UI_Manager : MonoBehaviour
 	public GameObject StartingPanel;
 	public GameObject ModeSeletPanel;
 	public GameObject BetSelectPanel;
+	public GameObject GamePlayPanel;
 
 	public Text BetAmount_text;
 
@@ -40,6 +41,7 @@ public class UI_Manager : MonoBehaviour
 		StartingPanel.SetActive (false);
 		ModeSeletPanel.SetActive (false);
 		BetSelectPanel.SetActive (false);
+		GamePlayPanel.SetActive (false);
 	}
 	public void Plus()
 	{
@@ -54,6 +56,11 @@ public class UI_Manager : MonoBehaviour
 		{
 			BetAmount = 100;	
 		}
+	}
+	public void betToPlay()
+	{
+		DisableAllPanel ();
+		GamePlayPanel.SetActive (true);
 	}
 	void Update()
 	{
