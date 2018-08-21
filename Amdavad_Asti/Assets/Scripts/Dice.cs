@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dice : MonoBehaviour {
 
@@ -14,8 +15,6 @@ public class Dice : MonoBehaviour {
 		rand = Random.Range (1,5);
 		diceValue = rand;
 		boardScript.GetComponent<Board> ().PlayerPunching ();
-//		StartCoroutine (PlayerPunching());
+		this.gameObject.GetComponent<Button> ().interactable = false;
 	}
-
-
 }

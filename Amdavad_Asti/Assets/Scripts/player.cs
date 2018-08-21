@@ -32,6 +32,7 @@ public class player : MonoBehaviour
 
 		this.gameObject.GetComponent<Animator> ().enabled = false;
 		this.gameObject.GetComponent<RectTransform> ().sizeDelta = new Vector2(12,12);
+
 //
 //		GameObject.FindGameObjectWithTag ("player").GetComponent<Animator>().enabled = false;
 //		GameObject.FindGameObjectWithTag ("player").GetComponent<RectTransform> ().sizeDelta = new Vector2(12,12);

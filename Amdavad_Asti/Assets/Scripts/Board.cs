@@ -8,6 +8,8 @@ public class Board : MonoBehaviour {
 	public Text showDiceValue;
 	public GameObject[] player1_pawns;
 	public GameObject[] player2_pawns;
+	public GameObject dice_obj;
+	public static int playerTurnValue = 1;
 
 	void Update () 
 	{
@@ -15,26 +17,48 @@ public class Board : MonoBehaviour {
 	}
 	public void PlayerPunching()
 	{
-		for(int i=0;i<player1_pawns.Length;i++)
+		if(playerTurnValue == 1)
 		{
-			player1_pawns [i].GetComponent<Animator> ().enabled = true;
+			for(int i=0;i<player1_pawns.Length;i++)
+			{
+				player1_pawns [i].GetComponent<Animator> ().enabled = true;
+				player1_pawns [i].GetComponent<Button> ().interactable = true;
+			}
 		}
-		for(int i=0;i<player2_pawns.Length;i++)
+		else if(playerTurnValue == 2)
 		{
-			player2_pawns [i].GetComponent<Animator> ().enabled = true;
+			for(int i=0;i<player2_pawns.Length;i++)
+			{
+				player2_pawns [i].GetComponent<Animator> ().enabled = true;
+				player2_pawns [i].GetComponent<Button> ().interactable = true;
+			}
 		}
 	}
 	public void StopPunching()
 	{
-		for(int i=0;i<player1_pawns.Length;i++)
-		{
-			player1_pawns [i].GetComponent<Animator> ().enabled = false;
-			player1_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12,12);
+		
+		dice_obj.GetComponent<Button> ().interactable = true;
+		if (playerTurnValue == 1) {
+			for (int i = 0; i < player1_pawns.Length; i++) {
+				player1_pawns [i].GetComponent<Animator> ().enabled = false;
+				player1_pawns [i].GetComponent<Button> ().interactable = false;
+				player1_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12, 12);
+			}
 		}
-		for(int i=0;i<player2_pawns.Length;i++)
+		else if(playerTurnValue == 2)
 		{
-			player2_pawns [i].GetComponent<Animator> ().enabled = false;
-			player2_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12,12);
+			for(int i=0;i<player2_pawns.Length;i++){
+				player2_pawns [i].GetComponent<Animator> ().enabled = false;
+				player2_pawns [i].GetComponent<Button> ().interactable = false;
+				player2_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12,12);
+			}
 		}
+		if (playerTurnValue < 2) {
+			playerTurnValue++;
+		} 
+		else {
+			playerTurnValue = 1;
+		}
+		Debug.Log ("Player Turn Value : "+playerTurnValue);
 	}
 }
