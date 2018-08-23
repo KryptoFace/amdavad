@@ -11,9 +11,14 @@ public class Board : MonoBehaviour {
 	public GameObject dice_obj;
 	public static int playerTurnValue = 1;
 
+	int rand;
+	public static int diceValue;
+	public GameObject diceBtn;
+
+
 	void Update () 
 	{
-		showDiceValue.text = Dice.diceValue.ToString();
+		showDiceValue.text = diceValue.ToString();
 	}
 	public void PlayerPunching()
 	{
@@ -60,5 +65,12 @@ public class Board : MonoBehaviour {
 			playerTurnValue = 1;
 		}
 		Debug.Log ("Player Turn Value : "+playerTurnValue);
+	}
+	public void rollDice()
+	{
+		rand = Random.Range (1,5);
+		diceValue = rand;
+		this.gameObject.GetComponent<Board> ().PlayerPunching ();
+		diceBtn.GetComponent<Button> ().interactable = false;
 	}
 }
