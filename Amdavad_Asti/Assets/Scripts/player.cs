@@ -11,6 +11,7 @@ public class player : MonoBehaviour
 	Vector3 initialPosition;
 	int stepValue = 0;
 
+
 	void Start()
 	{
 		initialPosition = this.transform.position;
@@ -20,7 +21,9 @@ public class player : MonoBehaviour
 	{
 		Debug.Log ("Step value "+stepValue);
 		boardScript.GetComponent<Board> ().StopPunching ();
+
 		StartCoroutine (stepBystep());
+
 	}
 	IEnumerator stepBystep()
 	{
@@ -30,22 +33,23 @@ public class player : MonoBehaviour
 				yield return new WaitForSeconds (0.3f);
 			}
 		stepValue += Board.diceValue; 
-
 		this.gameObject.GetComponent<Animator> ().enabled = false;
 		this.gameObject.GetComponent<RectTransform> ().sizeDelta = new Vector2(12,12);
+		yield return new WaitForSeconds (1.5f);
+
 	}
-	void OnTriggerEnter(Collider other)
+	void OnTriggerStay(Collider other)
 	{
-		if(Board.playerTurnValue == 1)
-		{
-			if(other.gameObject.tag == "player2")
+			if(Board.playerTurnValue == 1)
 			{
-				this.transform.position = initialPosition;
-				stepValue = 0;
+				if(other.gameObject.tag == "player2")
+				{
+					this.transform.position = initialPosition;
+					stepValue = 0;
 			//	playerButton.localPosition = pathPoints [0].gameObject.transform.position;
+				}
 			}
-		}
-		else if(Board.playerTurnValue == 2)
+		if(Board.playerTurnValue == 2)
 		{
 			if(other.gameObject.tag == "player1")
 			{
@@ -54,5 +58,6 @@ public class player : MonoBehaviour
 			//	playerButton.localPosition = pathPoints [0].gameObject.transform.position;
 			}
 		}
+
 	}
 }

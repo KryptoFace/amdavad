@@ -68,6 +68,7 @@ public class Board : MonoBehaviour {
 	}
 	public void rollDice()
 	{
+		
 		rand = Random.Range (1,5);
 		diceValue = rand;
 		this.gameObject.GetComponent<Board> ().PlayerPunching ();
