@@ -8,9 +8,9 @@ public class player : MonoBehaviour
 	public GameObject[] pathPoints;
 	RectTransform playerButton;
 	public GameObject boardScript;
-	Vector3 initialPosition;
-	int stepValue = 0;
-
+	public Vector3 initialPosition;
+	public int stepValue = 0;
+	bool myturn = false;
 
 	void Start()
 	{
@@ -21,9 +21,8 @@ public class player : MonoBehaviour
 	{
 		Debug.Log ("Step value "+stepValue);
 		boardScript.GetComponent<Board> ().StopPunching ();
-
+		myturn = true;
 		StartCoroutine (stepBystep());
-
 	}
 	IEnumerator stepBystep()
 	{
@@ -31,33 +30,20 @@ public class player : MonoBehaviour
 			{
 				playerButton.localPosition = pathPoints [j].gameObject.transform.localPosition;
 				yield return new WaitForSeconds (0.3f);
+			Debug.Log ("My turn Value before : "+myturn);
 			}
+		myturn = false;
+		Debug.Log ("My turn Value a : "+myturn);
 		stepValue += Board.diceValue; 
 		this.gameObject.GetComponent<Animator> ().enabled = false;
 		this.gameObject.GetComponent<RectTransform> ().sizeDelta = new Vector2(12,12);
-		yield return new WaitForSeconds (1.5f);
-
 	}
-	void OnTriggerStay(Collider other)
-	{
-			if(Board.playerTurnValue == 1)
-			{
-				if(other.gameObject.tag == "player2")
-				{
-					this.transform.position = initialPosition;
-					stepValue = 0;
-			//	playerButton.localPosition = pathPoints [0].gameObject.transform.position;
-				}
-			}
-		if(Board.playerTurnValue == 2)
-		{
-			if(other.gameObject.tag == "player1")
-			{
-				this.transform.position = initialPosition;
-				stepValue = 0;
-			//	playerButton.localPosition = pathPoints [0].gameObject.transform.position;
-			}
-		}
-
-	}
+//	void OnTriggerEnter(Collider other)
+//	{
+//			if(this.gameObject.tag != other.gameObject.tag)
+//			{
+//				other.gameObject.transform.position = other.GetComponent<player>().initialPosition;
+//				other.gameObject.GetComponent<player> ().stepValue = 0;
+//			}
+//	}
 }

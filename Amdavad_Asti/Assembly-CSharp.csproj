@@ -54,6 +54,10 @@
      <Compile Include="Assets\Scripts\Board.cs" />
      <Compile Include="Assets\Scripts\Dice.cs" />
      <Compile Include="Assets\Scripts\player.cs" />
+     <Compile Include="Assets\Scripts\player1Hit.cs" />
+     <Compile Include="Assets\Scripts\player2Hit.cs" />
+     <Compile Include="Assets\Scripts\player3Hit.cs" />
+     <Compile Include="Assets\Scripts\player4Hit.cs" />
      <Compile Include="Assets\Scripts\UI_Manager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity_2017_4_3/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
