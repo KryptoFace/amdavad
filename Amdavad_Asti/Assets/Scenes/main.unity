@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 129785437}
   m_Layer: 5
   m_Name: p42
-  m_TagString: player2
+  m_TagString: player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,6 +474,7 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &129785434
 MonoBehaviour:
@@ -839,7 +840,7 @@ GameObject:
   - component: {fileID: 232345410}
   m_Layer: 5
   m_Name: p44
-  m_TagString: player2
+  m_TagString: player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -946,6 +947,7 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &232345407
 MonoBehaviour:
@@ -1363,7 +1365,7 @@ GameObject:
   - component: {fileID: 423411511}
   m_Layer: 5
   m_Name: p32
-  m_TagString: player2
+  m_TagString: player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1470,6 +1472,7 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &423411508
 MonoBehaviour:
@@ -2088,7 +2091,7 @@ GameObject:
   - component: {fileID: 569485703}
   m_Layer: 5
   m_Name: p33
-  m_TagString: player2
+  m_TagString: player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2195,6 +2198,7 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &569485700
 MonoBehaviour:
@@ -3267,6 +3271,7 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!54 &855662809
 Rigidbody:
@@ -3662,7 +3667,7 @@ GameObject:
   - component: {fileID: 1042293283}
   m_Layer: 5
   m_Name: p34
-  m_TagString: player2
+  m_TagString: player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3769,6 +3774,7 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &1042293280
 MonoBehaviour:
@@ -3995,7 +4001,7 @@ GameObject:
   - component: {fileID: 1078242522}
   m_Layer: 5
   m_Name: p41
-  m_TagString: player2
+  m_TagString: player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4102,6 +4108,7 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &1078242519
 MonoBehaviour:
@@ -4293,7 +4300,7 @@ GameObject:
   - component: {fileID: 1146454909}
   m_Layer: 5
   m_Name: p31
-  m_TagString: player2
+  m_TagString: player3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4400,6 +4407,7 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &1146454906
 MonoBehaviour:
@@ -5017,6 +5025,7 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 25
   hasWon: 0
 --- !u!95 &1232542642
 Animator:
@@ -5310,6 +5319,7 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &1241357087
 MonoBehaviour:
@@ -5794,6 +5804,7 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &1275791581
 MonoBehaviour:
@@ -6221,6 +6232,7 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &1401935375
 MonoBehaviour:
@@ -6621,6 +6633,7 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &1522192325
 MonoBehaviour:
@@ -7832,7 +7845,7 @@ GameObject:
   - component: {fileID: 2018857933}
   m_Layer: 5
   m_Name: p43
-  m_TagString: player2
+  m_TagString: player4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7939,6 +7952,7 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!114 &2018857930
 MonoBehaviour:
@@ -8220,6 +8234,7 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!54 &2019645115
 Rigidbody:
@@ -8699,6 +8714,7 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
+  simulatedDice: 0
   hasWon: 0
 --- !u!54 &2105951231
 Rigidbody:

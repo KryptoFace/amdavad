@@ -8,6 +8,7 @@ public class player : MonoBehaviour
 {
 	[SerializeField] GameObject[] pathPoints;
 	[SerializeField] GameObject boardInput;
+	//[SerializeField] int simulatedDice;
 
 	RectTransform playerButton;
 	Vector3 spawnPosition;
@@ -18,7 +19,7 @@ public class player : MonoBehaviour
 
 	int stepsMovedFromSpawn = 0;
 	int myLivePosition = 1;
-	int myCurrentPositionOnBoard{ get { return getPostionOnBoard (myLivePosition - 1); } }
+	int myCurrentPositionOnBoard{ get {Debug.Log ("Current destination index " + (myLivePosition - 1).ToString()); return getPostionOnBoard (myLivePosition - 1); } }
 	int myFinalDestinationOnBoard;
 
 	List <int> safeHouseList = new List<int> (){ 1, 5, 9, 13, 25 };
@@ -32,15 +33,16 @@ public class player : MonoBehaviour
 
 	public void movetonext ()
 	{
-		myLivePosition = stepsMovedFromSpawn;
-		boardObject.StopPunchingAnimation ();
 		myFinalDestinationOnBoard = getPostionOnBoard (stepsMovedFromSpawn + boardObject.diceValue);
 		isMyTurn = true;
-		StartCoroutine (stepBystep ());
+		if (stepsMovedFromSpawn + boardObject.diceValue < 24) {
+			StartCoroutine (stepBystep ());
+		}
 	}
 
 	IEnumerator stepBystep ()
 	{
+		myLivePosition = stepsMovedFromSpawn;
 		for (int j = stepsMovedFromSpawn; j <= stepsMovedFromSpawn + boardObject.diceValue; j++) {
 			playerButton.localPosition = pathPoints [j].gameObject.transform.localPosition;
 			myLivePosition++;
@@ -49,8 +51,10 @@ public class player : MonoBehaviour
 		stepsMovedFromSpawn += boardObject.diceValue;
 		yield return new WaitForSeconds (0.1f);
 		isMyTurn = false;
-		hasMyPlayerPawnsWon ();
+		hasMyPlayerPawnsWon ();	
+		boardObject.StopPunchingAnimation ();
 		boardInput.GetComponent<Board> ().diceButtonUI.GetComponent<Button> ().interactable = true;
+
 	}
 		
 	void OnTriggerEnter (Collider other)
@@ -81,7 +85,11 @@ public class player : MonoBehaviour
 	// Method generates position of player on board
 	int getPostionOnBoard (int arrayIndex)
 	{
-		return int.Parse (pathPoints [arrayIndex].gameObject.name);
+		Debug.Log (arrayIndex);
+		if (arrayIndex < 24 && arrayIndex>0)
+			return int.Parse (pathPoints [arrayIndex].gameObject.name);
+		else
+			return 0;
 	}
 
 	//This method checks if all player pawns has won
