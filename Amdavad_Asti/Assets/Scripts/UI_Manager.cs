@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Manager : MonoBehaviour 
 {
-	public GameObject StartingPanel;
-	public GameObject ModeSeletPanel;
-	public GameObject BetSelectPanel;
-	public GameObject GamePlayPanel;
-
-	public Text BetAmount_text;
-
+	[SerializeField] GameObject StartingPanel;
+	[SerializeField] GameObject ModeSelectPanel;
+	[SerializeField] GameObject BetSelectPanel;
+	[SerializeField] GameObject GamePlayPanel;
+	[SerializeField] GameObject GameOverPanel;
+	[SerializeField] Text BetAmount_text;
+	[SerializeField] Text winnerName_text;
 	int BetAmount = 100;
 
 	public void Play()
 	{
 		DisableAllPanel ();
-		ModeSeletPanel.SetActive (true);
+		GamePlayPanel.SetActive (true);
 	}
 
 	public void SelectMode(GameObject modename)
@@ -39,7 +40,7 @@ public class UI_Manager : MonoBehaviour
 	public void DisableAllPanel()
 	{
 		StartingPanel.SetActive (false);
-		ModeSeletPanel.SetActive (false);
+		ModeSelectPanel.SetActive (false);
 		BetSelectPanel.SetActive (false);
 		GamePlayPanel.SetActive (false);
 	}
@@ -65,5 +66,15 @@ public class UI_Manager : MonoBehaviour
 	void Update()
 	{
 		BetAmount_text.text = BetAmount.ToString ();
+	}
+	public void restartGame()
+	{
+		SceneManager.LoadScene (0);
+	}
+	public void GameOver(string winnerName)
+	{
+		GamePlayPanel.SetActive (false);
+		GameOverPanel.SetActive (true);
+		winnerName_text.text += winnerName;
 	}
 }

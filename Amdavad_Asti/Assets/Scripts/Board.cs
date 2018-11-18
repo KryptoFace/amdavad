@@ -5,117 +5,61 @@ using UnityEngine.UI;
 
 public class Board : MonoBehaviour {
 
-	public Text showDiceValue;
-	public GameObject[] player1_pawns;
-	public GameObject[] player2_pawns;
-	public GameObject[] player3_pawns;
-	public GameObject[] player4_pawns;
+	[SerializeField] Text showDiceValue;
+	[SerializeField] GameObject[] player1_pawns;
+	[SerializeField] GameObject[] player2_pawns;
+	[SerializeField] GameObject[] player3_pawns;
+	[SerializeField] GameObject[] player4_pawns;
+	[SerializeField] int totalPlayers=4;
 
-	public GameObject dice_obj;
+	public GameObject diceButtonUI;
 	public static int playerTurnValue = 0;
+	public int diceValue;
+	public List<GameObject[]> playerPawnMap;
 
-	int rand;
-	public static int diceValue;
-	public GameObject diceBtn;
-
+	void Start()
+	{
+		playerPawnMap = new List <GameObject[]> ()
+		{ {player1_pawns}, {player2_pawns}, {player3_pawns}, {player4_pawns} };
+	}
 
 	void Update () 
 	{
 		showDiceValue.text = diceValue.ToString();
 	}
-	public void PlayerPunching()
+	public void StartPunchingAnimation()
 	{
-
-		if(playerTurnValue == 1)
-		{
-			for(int i=0;i<player1_pawns.Length;i++)
-			{
-				player1_pawns [i].GetComponent<Animator> ().enabled = true;
-				player1_pawns [i].GetComponent<Button> ().interactable = true;
-			}
-		}
-		else if(playerTurnValue == 2)
-		{
-			for(int i=0;i<player2_pawns.Length;i++)
-			{
-				player2_pawns [i].GetComponent<Animator> ().enabled = true;
-				player2_pawns [i].GetComponent<Button> ().interactable = true;
-			}
-		}
-		else if(playerTurnValue == 3)
-		{
-			for(int i=0;i<player3_pawns.Length;i++)
-			{
-				player3_pawns [i].GetComponent<Animator> ().enabled = true;
-				player3_pawns [i].GetComponent<Button> ().interactable = true;
-			}
-		}
-		else if(playerTurnValue == 4)
-		{
-			for(int i=0;i<player4_pawns.Length;i++)
-			{
-				player4_pawns [i].GetComponent<Animator> ().enabled = true;
-				player4_pawns [i].GetComponent<Button> ().interactable = true;
-			}
-		}
+		playerPunchingExecuter (playerTurnValue,true);
 	}
-	public void StopPunching()
+	public void StopPunchingAnimation()
 	{
-		dice_obj.GetComponent<Button> ().interactable = true;
-		if (playerTurnValue == 1) 
-		{
-			for (int i = 0; i < player1_pawns.Length; i++) {
-				
-				player1_pawns [i].GetComponent<Animator> ().enabled = false;
-				player1_pawns [i].GetComponent<Button> ().interactable = false;
-				player1_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12, 12);
-			}
-		}
-		else if(playerTurnValue == 2)
-		{
-			
-			for(int i=0;i<player2_pawns.Length;i++){
-				
-				player2_pawns [i].GetComponent<Animator> ().enabled = false;
-				player2_pawns [i].GetComponent<Button> ().interactable = false;
-				player2_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12,12);
-			}
-		}
-		else if(playerTurnValue == 3)
-		{
-			
-			for(int i=0;i<player2_pawns.Length;i++){
-				
-				player3_pawns [i].GetComponent<Animator> ().enabled = false;
-				player3_pawns [i].GetComponent<Button> ().interactable = false;
-				player3_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12,12);
-			}
-		}
-		else if(playerTurnValue == 4)
-		{
-			
-			for(int i=0;i<player2_pawns.Length;i++){
-				
-				player4_pawns [i].GetComponent<Animator> ().enabled = false;
-				player4_pawns [i].GetComponent<Button> ().interactable = false;
-				player4_pawns [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12,12);
-			}
-		}
+		playerPunchingExecuter (playerTurnValue,false);
+	}
 
+	void playerPunchingExecuter(int playerTurnValue,bool isEnabled)
+	{
+		GameObject[] playerPawn=playerPawnMap[--playerTurnValue];
+		for(int i=0;i<playerPawn.Length;i++)
+		{
+			if (!playerPawn [i].GetComponent<player> ().hasWon) {
+				playerPawn [i].GetComponent<Animator> ().enabled = isEnabled;
+				playerPawn [i].GetComponent<Button> ().interactable = isEnabled;
+				playerPawn [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12, 12);
+			}
+		}
 	}
 	public void rollDice()
 	{
-		if (playerTurnValue == 2) {
+		if (playerTurnValue == totalPlayers) {
 			playerTurnValue = 1;
 		} 
 		else {
 			playerTurnValue++;
 		}
 		Debug.Log ("Player Turn Value : "+playerTurnValue);
-		rand = Random.Range (1,5);
-		diceValue = rand;
-		this.gameObject.GetComponent<Board> ().PlayerPunching ();
-		diceBtn.GetComponent<Button> ().interactable = false;
+		diceValue =Random.Range (1,5);
+		this.gameObject.GetComponent<Board> ().StartPunchingAnimation ();
+		diceButtonUI.GetComponent<Button> ().interactable = false;
 	}
 
 }
