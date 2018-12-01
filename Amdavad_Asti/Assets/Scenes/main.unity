@@ -364,10 +364,9 @@ GameObject:
   - component: {fileID: 129785432}
   - component: {fileID: 129785431}
   - component: {fileID: 129785430}
-  - component: {fileID: 129785437}
   m_Layer: 5
   m_Name: p42
-  m_TagString: player4
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -474,8 +473,9 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &129785434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,17 +562,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129785428}
   m_CullTransparentMesh: 0
---- !u!114 &129785437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 129785428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be9de9366415e24d9cbee0a1c937fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &137824870
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,10 +826,9 @@ GameObject:
   - component: {fileID: 232345405}
   - component: {fileID: 232345404}
   - component: {fileID: 232345403}
-  - component: {fileID: 232345410}
   m_Layer: 5
   m_Name: p44
-  m_TagString: player4
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,8 +935,9 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &232345407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,17 +1024,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 232345401}
   m_CullTransparentMesh: 0
---- !u!114 &232345410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 232345401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be9de9366415e24d9cbee0a1c937fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &235878254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,10 +1340,9 @@ GameObject:
   - component: {fileID: 423411506}
   - component: {fileID: 423411505}
   - component: {fileID: 423411504}
-  - component: {fileID: 423411511}
   m_Layer: 5
   m_Name: p32
-  m_TagString: player3
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1472,8 +1449,9 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &423411508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,17 +1538,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 423411502}
   m_CullTransparentMesh: 0
---- !u!114 &423411511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 423411502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61de7673a0f96a4e9011155dd53fb14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &429574070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +1946,7 @@ GameObject:
   - component: {fileID: 562130219}
   - component: {fileID: 562130218}
   - component: {fileID: 562130220}
+  - component: {fileID: 562130221}
   m_Layer: 5
   m_Name: Board
   m_TagString: Untagged
@@ -2050,6 +2018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showDiceValue: {fileID: 1599213537}
+  showPlayerTurn: {fileID: 1062758616}
   player1_pawns:
   - {fileID: 1232542636}
   - {fileID: 2019645108}
@@ -2073,6 +2042,18 @@ MonoBehaviour:
   totalPlayers: 4
   diceButtonUI: {fileID: 1256404653}
   diceValue: 0
+--- !u!114 &562130221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562130216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8934f662792b34a8725e9e1921b774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boardInput: {fileID: 562130216}
 --- !u!1 &569485694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,10 +2069,9 @@ GameObject:
   - component: {fileID: 569485698}
   - component: {fileID: 569485697}
   - component: {fileID: 569485696}
-  - component: {fileID: 569485703}
   m_Layer: 5
   m_Name: p33
-  m_TagString: player3
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2198,8 +2178,9 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &569485700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2286,17 +2267,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569485694}
   m_CullTransparentMesh: 0
---- !u!114 &569485703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 569485694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61de7673a0f96a4e9011155dd53fb14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &570155395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,7 +3075,7 @@ GameObject:
   - component: {fileID: 855662809}
   m_Layer: 5
   m_Name: p13
-  m_TagString: player1
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3271,8 +3241,9 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!54 &855662809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3664,10 +3635,9 @@ GameObject:
   - component: {fileID: 1042293278}
   - component: {fileID: 1042293277}
   - component: {fileID: 1042293276}
-  - component: {fileID: 1042293283}
   m_Layer: 5
   m_Name: p34
-  m_TagString: player3
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3774,8 +3744,9 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &1042293280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3862,17 +3833,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1042293274}
   m_CullTransparentMesh: 0
---- !u!114 &1042293283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1042293274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61de7673a0f96a4e9011155dd53fb14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1054108462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3917,7 +3877,7 @@ GameObject:
   - component: {fileID: 1062758617}
   - component: {fileID: 1062758616}
   m_Layer: 5
-  m_Name: Text
+  m_Name: playerTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3998,10 +3958,9 @@ GameObject:
   - component: {fileID: 1078242517}
   - component: {fileID: 1078242516}
   - component: {fileID: 1078242515}
-  - component: {fileID: 1078242522}
   m_Layer: 5
   m_Name: p41
-  m_TagString: player4
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4108,8 +4067,9 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &1078242519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4196,17 +4156,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078242513}
   m_CullTransparentMesh: 0
---- !u!114 &1078242522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1078242513}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be9de9366415e24d9cbee0a1c937fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1088119281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4297,10 +4246,9 @@ GameObject:
   - component: {fileID: 1146454904}
   - component: {fileID: 1146454903}
   - component: {fileID: 1146454902}
-  - component: {fileID: 1146454909}
   m_Layer: 5
   m_Name: p31
-  m_TagString: player3
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4407,8 +4355,9 @@ MonoBehaviour:
   - {fileID: 1610529815}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &1146454906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4495,17 +4444,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146454900}
   m_CullTransparentMesh: 0
---- !u!114 &1146454909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1146454900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d61de7673a0f96a4e9011155dd53fb14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1152821021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,7 +4815,7 @@ GameObject:
   - component: {fileID: 1232542643}
   m_Layer: 5
   m_Name: p11
-  m_TagString: player1
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5025,8 +4963,9 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 25
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!95 &1232542642
 Animator:
   serializedVersion: 3
@@ -5212,7 +5151,7 @@ GameObject:
   - component: {fileID: 1241357083}
   m_Layer: 5
   m_Name: p24
-  m_TagString: player2
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5319,8 +5258,9 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &1241357087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5697,7 +5637,7 @@ GameObject:
   - component: {fileID: 1275791577}
   m_Layer: 5
   m_Name: p22
-  m_TagString: player2
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5804,8 +5744,9 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &1275791581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6125,7 +6066,7 @@ GameObject:
   - component: {fileID: 1401935371}
   m_Layer: 5
   m_Name: p23
-  m_TagString: player2
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6232,8 +6173,9 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &1401935375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6553,7 +6495,7 @@ GameObject:
   - component: {fileID: 1522192328}
   m_Layer: 5
   m_Name: p21
-  m_TagString: player2
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6633,8 +6575,9 @@ MonoBehaviour:
   - {fileID: 1054108462}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &1522192325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7842,10 +7785,9 @@ GameObject:
   - component: {fileID: 2018857928}
   - component: {fileID: 2018857927}
   - component: {fileID: 2018857926}
-  - component: {fileID: 2018857933}
   m_Layer: 5
   m_Name: p43
-  m_TagString: player4
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7952,8 +7894,9 @@ MonoBehaviour:
   - {fileID: 860302648}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!114 &2018857930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8040,17 +7983,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2018857924}
   m_CullTransparentMesh: 0
---- !u!114 &2018857933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018857924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3be9de9366415e24d9cbee0a1c937fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2019645108
 GameObject:
   m_ObjectHideFlags: 0
@@ -8068,7 +8000,7 @@ GameObject:
   - component: {fileID: 2019645115}
   m_Layer: 5
   m_Name: p12
-  m_TagString: player1
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8234,8 +8166,9 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!54 &2019645115
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8411,7 +8344,7 @@ Camera:
   m_GameObject: {fileID: 2103546508}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
@@ -8548,7 +8481,7 @@ GameObject:
   - component: {fileID: 2105951231}
   m_Layer: 5
   m_Name: p14
-  m_TagString: player1
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8714,8 +8647,9 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 0
+  simulatedDice: 1
   hasWon: 0
+  isEligibleForMove: 0
 --- !u!54 &2105951231
 Rigidbody:
   m_ObjectHideFlags: 0

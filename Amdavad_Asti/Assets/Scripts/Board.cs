@@ -2,46 +2,56 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class Board : MonoBehaviour {
 
 	[SerializeField] Text showDiceValue;
+	[SerializeField] Text showPlayerTurn;
 	[SerializeField] GameObject[] player1_pawns;
 	[SerializeField] GameObject[] player2_pawns;
 	[SerializeField] GameObject[] player3_pawns;
 	[SerializeField] GameObject[] player4_pawns;
-	[SerializeField] int totalPlayers=4;
 
+	public int totalPlayers=4;
 	public GameObject diceButtonUI;
 	public static int playerTurnValue = 0;
 	public int diceValue;
-	public List<GameObject[]> playerPawnMap;
+	public Dictionary <string,GameObject[]> playerPawnMap{ get; private set;}
+	public List <string> playerNameMap{ get; private set;}
+
+	GameRulesUtility ruleChecker;
 
 	void Start()
 	{
-		playerPawnMap = new List <GameObject[]> ()
-		{ {player1_pawns}, {player2_pawns}, {player3_pawns}, {player4_pawns} };
+		ruleChecker = this.gameObject.GetComponent<GameRulesUtility> ();
+		playerNameMap= new List<string>(){"Red","Green","Pink","Blue"};
+		playerPawnMap = new Dictionary <string,GameObject[]> ()
+		{ {player1_pawns[0].tag,player1_pawns}, {player2_pawns[0].tag,player2_pawns}, {player3_pawns[0].tag,player3_pawns}, {player4_pawns[0].tag,player4_pawns} };
+		changePlayerTurnName ();
 	}
 
 	void Update () 
 	{
 		showDiceValue.text = diceValue.ToString();
 	}
-	public void StartPunchingAnimation()
+	public void StartPunchingAnimation(out bool changeTurn)
 	{
-		playerPunchingExecuter (playerTurnValue,true);
+		playerPunchingExecuter (true, out changeTurn);
 	}
 	public void StopPunchingAnimation()
 	{
-		playerPunchingExecuter (playerTurnValue,false);
+		bool ignore;
+		playerPunchingExecuter (false,out ignore);
 	}
 
-	void playerPunchingExecuter(int playerTurnValue,bool isEnabled)
+	void playerPunchingExecuter(bool isEnabled, out bool changeTurn)
 	{
-		GameObject[] playerPawn=playerPawnMap[--playerTurnValue];
+		changeTurn = true;
+		GameObject[] playerPawn=playerPawnMap.ElementAt(playerTurnValue).Value;
 		for(int i=0;i<playerPawn.Length;i++)
 		{
-			if (!playerPawn [i].GetComponent<player> ().hasWon) {
+			if (!playerPawn [i].GetComponent<PlayerPawn> ().hasWon && playerPawn [i].GetComponent<PlayerPawn> ().isEligibleForMove || ruleChecker.isPlayerElgibleToMove(diceValue)) {
+				changeTurn = false;
 				playerPawn [i].GetComponent<Animator> ().enabled = isEnabled;
 				playerPawn [i].GetComponent<Button> ().interactable = isEnabled;
 				playerPawn [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12, 12);
@@ -50,16 +60,55 @@ public class Board : MonoBehaviour {
 	}
 	public void rollDice()
 	{
-		if (playerTurnValue == totalPlayers) {
-			playerTurnValue = 1;
+		Debug.Log ("Player Turn Value : "+playerTurnValue);
+		diceValue =Random.Range (1,5);
+		bool skipTurn;
+		this.gameObject.GetComponent<Board> ().StartPunchingAnimation (out skipTurn);
+		if (skipTurn) {
+			playerTurnChanger ();
+		} else {
+			diceButtonUI.GetComponent<Button> ().interactable = false;	
+		}
+	}
+	bool canAnyPlayerMove()
+	{
+		GameObject[] playerPawn=playerPawnMap.ElementAt(playerTurnValue).Value;
+		for(int i=0;i<playerPawn.Length;i++)
+		{
+			if (playerPawn [i].GetComponent<PlayerPawn> ().stepsMovedFromSpawn + diceValue <= PlayerPawn.safeHouseList [PlayerPawn.safeHouseList.Count - 1]) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void playerTurnChanger()
+	{
+		if (playerTurnValue == playerPawnMap.Count - 1) {
+			playerTurnValue = 0;
 		} 
 		else {
 			playerTurnValue++;
 		}
-		Debug.Log ("Player Turn Value : "+playerTurnValue);
-		diceValue =Random.Range (1,5);
-		this.gameObject.GetComponent<Board> ().StartPunchingAnimation ();
-		diceButtonUI.GetComponent<Button> ().interactable = false;
+		changePlayerTurnName ();
 	}
 
+	public void removeWinnerPlayer(string playerTag)
+	{
+		playerPawnMap.Remove (playerTag);
+		playerTurnValue = 0;
+	}
+	public GameObject[] getAllPlayerPawns(string playerTag)
+	{
+		GameObject[] allPawns;
+		playerPawnMap.TryGetValue (playerTag, out allPawns);
+
+		return allPawns;
+	}
+
+	void changePlayerTurnName()
+	{
+		showPlayerTurn.text = playerNameMap [playerTurnValue];
+	}
+		
 }
