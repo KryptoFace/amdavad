@@ -43,10 +43,23 @@ public class GameRulesUtility : MonoBehaviour {
 			GameObject.Find("UI_Manager").GetComponent<UI_Manager> ().GameOver(playerRanks[0]);
 		}
 	}
-
-	public bool isPlayerElgibleToMove(int dice)
+		
+	public bool canAnyElgiblePlayerMove(GameObject player, int diceValue)
 	{
-		return dice == eligibleMoveValue ;
+		PlayerPawn pawn = player.GetComponent<PlayerPawn> ();
+
+		if (!pawn.hasWon) {
+			if (pawn.isEligibleForMove) {
+				if (pawn.isDouble > 0 && boardObject.diceValue % 2 == 0) {
+					return pawn.stepsMovedFromSpawn + (diceValue / 2) < pawn.getFinalHouse ();
+				} else if(pawn.isDouble == 0) {
+					return pawn.stepsMovedFromSpawn + diceValue < pawn.getFinalHouse ();
+				}
+			} else {
+				return diceValue == eligibleMoveValue;
+			}
+		}
+		return false;
 	}
 
 }

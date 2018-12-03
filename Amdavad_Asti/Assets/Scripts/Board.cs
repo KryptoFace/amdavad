@@ -27,12 +27,18 @@ public class Board : MonoBehaviour {
 		playerNameMap= new List<string>(){"Red","Green","Pink","Blue"};
 		playerPawnMap = new Dictionary <string,GameObject[]> ()
 		{ {player1_pawns[0].tag,player1_pawns}, {player2_pawns[0].tag,player2_pawns}, {player3_pawns[0].tag,player3_pawns}, {player4_pawns[0].tag,player4_pawns} };
-		changePlayerTurnName ();
+		changePlayerTurnName (playerNameMap [playerTurnValue]);
+		removeNonPlayablePlayers ();
 	}
 
 	void Update () 
 	{
-		showDiceValue.text = diceValue.ToString();
+		
+	}
+	public void StartPunchingAnimation()
+	{
+		bool ignore;
+		playerPunchingExecuter (true, out ignore);
 	}
 	public void StartPunchingAnimation(out bool changeTurn)
 	{
@@ -50,18 +56,27 @@ public class Board : MonoBehaviour {
 		GameObject[] playerPawn=playerPawnMap.ElementAt(playerTurnValue).Value;
 		for(int i=0;i<playerPawn.Length;i++)
 		{
-			if (!playerPawn [i].GetComponent<PlayerPawn> ().hasWon && playerPawn [i].GetComponent<PlayerPawn> ().isEligibleForMove || ruleChecker.isPlayerElgibleToMove(diceValue)) {
+			if(isEnabled == false)
+			{
+				playerActivator(playerPawn[i], isEnabled);
+			}
+			else if (ruleChecker.canAnyElgiblePlayerMove(playerPawn [i],diceValue)) {
 				changeTurn = false;
-				playerPawn [i].GetComponent<Animator> ().enabled = isEnabled;
-				playerPawn [i].GetComponent<Button> ().interactable = isEnabled;
-				playerPawn [i].GetComponent<RectTransform> ().sizeDelta = new Vector2 (12, 12);
+				playerActivator(playerPawn[i], isEnabled);
 			}
 		}
 	}
+
+	void playerActivator(GameObject playerPawn,bool isEnabled)
+	{
+		playerPawn.GetComponent<Animator> ().enabled = isEnabled;
+		playerPawn.GetComponent<Button> ().interactable = isEnabled;
+		playerPawn.GetComponent<RectTransform> ().sizeDelta = new Vector2 (12, 12);
+	}
 	public void rollDice()
 	{
-		Debug.Log ("Player Turn Value : "+playerTurnValue);
 		diceValue =Random.Range (1,5);
+		showDiceValue.text = diceValue.ToString();
 		bool skipTurn;
 		this.gameObject.GetComponent<Board> ().StartPunchingAnimation (out skipTurn);
 		if (skipTurn) {
@@ -70,18 +85,6 @@ public class Board : MonoBehaviour {
 			diceButtonUI.GetComponent<Button> ().interactable = false;	
 		}
 	}
-	bool canAnyPlayerMove()
-	{
-		GameObject[] playerPawn=playerPawnMap.ElementAt(playerTurnValue).Value;
-		for(int i=0;i<playerPawn.Length;i++)
-		{
-			if (playerPawn [i].GetComponent<PlayerPawn> ().stepsMovedFromSpawn + diceValue <= PlayerPawn.safeHouseList [PlayerPawn.safeHouseList.Count - 1]) {
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public void playerTurnChanger()
 	{
 		if (playerTurnValue == playerPawnMap.Count - 1) {
@@ -90,7 +93,12 @@ public class Board : MonoBehaviour {
 		else {
 			playerTurnValue++;
 		}
-		changePlayerTurnName ();
+		changePlayerTurnName (playerNameMap [playerTurnValue]);
+	}
+
+	public void playTurnAgain()
+	{
+		diceButtonUI.GetComponent<Button> ().interactable = true;	
 	}
 
 	public void removeWinnerPlayer(string playerTag)
@@ -106,9 +114,16 @@ public class Board : MonoBehaviour {
 		return allPawns;
 	}
 
-	void changePlayerTurnName()
+	public void changePlayerTurnName(string text)
 	{
-		showPlayerTurn.text = playerNameMap [playerTurnValue];
+		showPlayerTurn.text = text ;
+	}
+
+	void removeNonPlayablePlayers()
+	{
+		for (int i = totalPlayers+1; i <= 4; i++) {
+			playerPawnMap.Remove (i.ToString());
+		}
 	}
 		
 }

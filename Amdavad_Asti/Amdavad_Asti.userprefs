@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameRulesUtility.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PlayerPawn.cs">
     <Files>
-      <File FileName="Assets\Scripts\Board.cs" Line="63" Column="25" />
-      <File FileName="Assets\Scripts\GameRulesUtility.cs" Line="26" Column="72" />
-      <File FileName="Assets\Scripts\PlayerPawn.cs" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\Board.cs" Line="78" Column="3" />
+      <File FileName="Assets\Scripts\GameRulesUtility.cs" Line="7" Column="41" />
+      <File FileName="Assets\Scripts\PlayerPawn.cs" Line="104" Column="37" />
+      <File FileName="Assets\Scripts\UI_Manager.cs" Line="10" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

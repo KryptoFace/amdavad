@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -342,7 +342,7 @@ RectTransform:
   - {fileID: 1850047121}
   - {fileID: 928524575}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 129785432}
   - component: {fileID: 129785431}
   - component: {fileID: 129785430}
+  - component: {fileID: 129785438}
   m_Layer: 5
   m_Name: p42
   m_TagString: 4
@@ -415,7 +416,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &129785432
 Animator:
@@ -474,8 +475,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &129785434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +565,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 129785428}
   m_CullTransparentMesh: 0
+--- !u!114 &129785438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 129785428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &137824870
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,6 +843,7 @@ GameObject:
   - component: {fileID: 232345405}
   - component: {fileID: 232345404}
   - component: {fileID: 232345403}
+  - component: {fileID: 232345411}
   m_Layer: 5
   m_Name: p44
   m_TagString: 4
@@ -877,7 +895,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &232345405
 Animator:
@@ -936,8 +954,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &232345407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,6 +1044,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 232345401}
   m_CullTransparentMesh: 0
+--- !u!114 &232345411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232345401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &235878254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,6 +1374,7 @@ GameObject:
   - component: {fileID: 423411506}
   - component: {fileID: 423411505}
   - component: {fileID: 423411504}
+  - component: {fileID: 423411512}
   m_Layer: 5
   m_Name: p32
   m_TagString: 3
@@ -1391,7 +1426,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &423411506
 Animator:
@@ -1450,8 +1485,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &423411508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,6 +1575,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 423411502}
   m_CullTransparentMesh: 0
+--- !u!114 &423411512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423411502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &429574070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1736,72 +1787,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 452875764}
   m_CullTransparentMesh: 0
---- !u!1 &453909949
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 453909951}
-  - component: {fileID: 453909950}
-  m_Layer: 0
-  m_Name: Directional Light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &453909950
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 453909949}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &453909951
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 453909949}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &454486730
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2026,7 @@ MonoBehaviour:
   - {fileID: 232345401}
   totalPlayers: 4
   diceButtonUI: {fileID: 1256404653}
-  diceValue: 0
+  diceValue: 4
 --- !u!114 &562130221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2069,6 +2054,7 @@ GameObject:
   - component: {fileID: 569485698}
   - component: {fileID: 569485697}
   - component: {fileID: 569485696}
+  - component: {fileID: 569485704}
   m_Layer: 5
   m_Name: p33
   m_TagString: 3
@@ -2120,7 +2106,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &569485698
 Animator:
@@ -2179,8 +2165,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &569485700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2267,6 +2255,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569485694}
   m_CullTransparentMesh: 0
+--- !u!114 &569485704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 569485694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &570155395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2867,7 +2869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &801193245
 GameObject:
@@ -3073,6 +3075,7 @@ GameObject:
   - component: {fileID: 855662807}
   - component: {fileID: 855662810}
   - component: {fileID: 855662809}
+  - component: {fileID: 855662812}
   m_Layer: 5
   m_Name: p13
   m_TagString: 1
@@ -3241,9 +3244,11 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 1
+  simulatedDice: 2
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!54 &855662809
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3269,8 +3274,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &855662812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855662802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &860302648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,7 +3529,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &983719481
 GameObject:
@@ -3635,6 +3654,7 @@ GameObject:
   - component: {fileID: 1042293278}
   - component: {fileID: 1042293277}
   - component: {fileID: 1042293276}
+  - component: {fileID: 1042293284}
   m_Layer: 5
   m_Name: p34
   m_TagString: 3
@@ -3686,7 +3706,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1042293278
 Animator:
@@ -3745,8 +3765,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &1042293280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3833,6 +3855,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1042293274}
   m_CullTransparentMesh: 0
+--- !u!114 &1042293284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042293274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1054108462
 GameObject:
   m_ObjectHideFlags: 0
@@ -3958,6 +3994,7 @@ GameObject:
   - component: {fileID: 1078242517}
   - component: {fileID: 1078242516}
   - component: {fileID: 1078242515}
+  - component: {fileID: 1078242523}
   m_Layer: 5
   m_Name: p41
   m_TagString: 4
@@ -4009,7 +4046,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1078242517
 Animator:
@@ -4068,8 +4105,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &1078242519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4156,6 +4195,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1078242513}
   m_CullTransparentMesh: 0
+--- !u!114 &1078242523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1078242513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1088119281
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,6 +4299,7 @@ GameObject:
   - component: {fileID: 1146454904}
   - component: {fileID: 1146454903}
   - component: {fileID: 1146454902}
+  - component: {fileID: 1146454910}
   m_Layer: 5
   m_Name: p31
   m_TagString: 3
@@ -4297,7 +4351,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1146454904
 Animator:
@@ -4356,8 +4410,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &1146454906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4444,6 +4500,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1146454900}
   m_CullTransparentMesh: 0
+--- !u!114 &1146454910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146454900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1152821021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4813,6 +4883,7 @@ GameObject:
   - component: {fileID: 1232542642}
   - component: {fileID: 1232542644}
   - component: {fileID: 1232542643}
+  - component: {fileID: 1232542646}
   m_Layer: 5
   m_Name: p11
   m_TagString: 1
@@ -4963,9 +5034,11 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 1
+  simulatedDice: 4
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!95 &1232542642
 Animator:
   serializedVersion: 3
@@ -5009,8 +5082,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1232542646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232542636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1234604132
 GameObject:
   m_ObjectHideFlags: 0
@@ -5149,6 +5236,7 @@ GameObject:
   - component: {fileID: 1241357085}
   - component: {fileID: 1241357084}
   - component: {fileID: 1241357083}
+  - component: {fileID: 1241357091}
   m_Layer: 5
   m_Name: p24
   m_TagString: 2
@@ -5200,7 +5288,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1241357085
 Animator:
@@ -5259,8 +5347,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &1241357087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5347,6 +5437,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1241357081}
   m_CullTransparentMesh: 0
+--- !u!114 &1241357091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1241357081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1247778515
 GameObject:
   m_ObjectHideFlags: 0
@@ -5635,6 +5739,7 @@ GameObject:
   - component: {fileID: 1275791579}
   - component: {fileID: 1275791578}
   - component: {fileID: 1275791577}
+  - component: {fileID: 1275791585}
   m_Layer: 5
   m_Name: p22
   m_TagString: 2
@@ -5686,7 +5791,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1275791579
 Animator:
@@ -5745,8 +5850,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &1275791581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5833,6 +5940,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1275791575}
   m_CullTransparentMesh: 0
+--- !u!114 &1275791585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1275791575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1295286160
 GameObject:
   m_ObjectHideFlags: 0
@@ -6064,6 +6185,7 @@ GameObject:
   - component: {fileID: 1401935373}
   - component: {fileID: 1401935372}
   - component: {fileID: 1401935371}
+  - component: {fileID: 1401935379}
   m_Layer: 5
   m_Name: p23
   m_TagString: 2
@@ -6087,7 +6209,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 145.7, y: 320.9}
+  m_AnchoredPosition: {x: 152.4, y: 320}
   m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!54 &1401935371
@@ -6115,7 +6237,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &1401935373
 Animator:
@@ -6174,8 +6296,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &1401935375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6262,6 +6386,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1401935369}
   m_CullTransparentMesh: 0
+--- !u!114 &1401935379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1401935369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1450732863
 GameObject:
   m_ObjectHideFlags: 0
@@ -6493,6 +6631,7 @@ GameObject:
   - component: {fileID: 1522192323}
   - component: {fileID: 1522192329}
   - component: {fileID: 1522192328}
+  - component: {fileID: 1522192331}
   m_Layer: 5
   m_Name: p21
   m_TagString: 2
@@ -6516,7 +6655,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 125.2, y: 344}
+  m_AnchoredPosition: {x: 128.8, y: 344.1}
   m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1522192323
@@ -6576,8 +6715,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &1522192325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6689,8 +6830,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1522192331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1522192321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1535875521
 GameObject:
   m_ObjectHideFlags: 0
@@ -7785,6 +7940,7 @@ GameObject:
   - component: {fileID: 2018857928}
   - component: {fileID: 2018857927}
   - component: {fileID: 2018857926}
+  - component: {fileID: 2018857934}
   m_Layer: 5
   m_Name: p43
   m_TagString: 4
@@ -7836,7 +7992,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &2018857928
 Animator:
@@ -7895,8 +8051,10 @@ MonoBehaviour:
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
   simulatedDice: 1
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!114 &2018857930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7983,6 +8141,20 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2018857924}
   m_CullTransparentMesh: 0
+--- !u!114 &2018857934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018857924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2019645108
 GameObject:
   m_ObjectHideFlags: 0
@@ -7998,6 +8170,7 @@ GameObject:
   - component: {fileID: 2019645113}
   - component: {fileID: 2019645116}
   - component: {fileID: 2019645115}
+  - component: {fileID: 2019645118}
   m_Layer: 5
   m_Name: p12
   m_TagString: 1
@@ -8021,7 +8194,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 21.2, y: 195.7}
+  m_AnchoredPosition: {x: 22, y: 194.1}
   m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019645110
@@ -8166,9 +8339,11 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 1
+  simulatedDice: 4
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!54 &2019645115
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8194,8 +8369,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2019645118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2019645108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2034365094
 GameObject:
   m_ObjectHideFlags: 0
@@ -8479,6 +8668,7 @@ GameObject:
   - component: {fileID: 2105951229}
   - component: {fileID: 2105951232}
   - component: {fileID: 2105951231}
+  - component: {fileID: 2105951234}
   m_Layer: 5
   m_Name: p14
   m_TagString: 1
@@ -8502,7 +8692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -20.8, y: 196}
+  m_AnchoredPosition: {x: -22.6, y: 194.1}
   m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2105951226
@@ -8647,9 +8837,11 @@ MonoBehaviour:
   - {fileID: 1205152839}
   - {fileID: 754213149}
   boardInput: {fileID: 562130216}
-  simulatedDice: 1
+  simulatedDice: 2
+  spawnPosition: {x: 0, y: 0, z: 0}
   hasWon: 0
   isEligibleForMove: 0
+  isDouble: 0
 --- !u!54 &2105951231
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8675,8 +8867,22 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 12, z: 1}
+  m_Size: {x: 15, y: 15, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2105951234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105951224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
+  m_EffectDistance: {x: 1, y: 1.02}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2110202180
 GameObject:
   m_ObjectHideFlags: 0
